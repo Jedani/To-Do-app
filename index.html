@@ -24,7 +24,10 @@
 		<div class="container">
 			<div class="firstContainer">
 				<div class="pi">
-					<p>T O D O</p>
+					<div class="p"><p>T O D O</p></div>
+					<div class="l">
+						<a id="logo"></a>
+					</div>
 				</div>
 				<div class="top">
 					<div class="input">
@@ -33,7 +36,28 @@
 					<p>Create a new todo...</p>
 				</div>
 			</div>
-			<div class="secondContainer"></div>
+			<div class="secondContainer">
+				<div class="top">
+					<div class="input">
+						<input type="radio" name="on" id="create" />
+					</div>
+					<p>Create a new todo...</p>
+				</div>
+				<div class="bottomDiv">
+					<div class="counter">
+						<p>items left</p>
+					</div>
+					<div class="state">
+						<p>All</p>
+						<p>Active</p>
+						<p>Completed</p>
+					</div>
+					<div class="clear">
+						<p>Clear Completed</p>
+					</div>
+				</div>
+			</div>
+			<p>Drag and drop to reorder list</p>
 		</div>
 
 		<footer>
@@ -44,5 +68,6 @@
 				>. Coded by &COPY;<a href="#"> JEDANI</a>.
 			</div>
 		</footer>
+		<script src="./logic.js"></script>
 	</body>
 </html>

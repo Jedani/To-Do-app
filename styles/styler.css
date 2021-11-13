@@ -1,6 +1,17 @@
+.light {
+  --textColor: black;
+  --bodyBackground: hsl(0, 0%, 98%);
+  --createToDo: hsl(236, 33%, 92%);
+  --icon: url("../images/icon-moon.svg");
+  --bgimage: url("../images/bg-desktop-light.jpg");
+}
+
 .dark {
   --bodyBackground: hsl(235, 21%, 11%);
   --createToDo: hsl(235, 24%, 19%);
+  --textColor: white;
+  --icon: url("../images/icon-sun.svg");
+  --bgimage: url("../images/bg-desktop-dark.jpg");
 }
 
 body {
@@ -8,12 +19,15 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
-  background-image: url("../images/bg-desktop-dark.jpg");
+  background-image: var(--bgimage);
   background-repeat: no-repeat;
   font-family: "Josefin Sans", sans-serif;
   font-size: 18px;
   text-align: center;
   background-color: var(--bodyBackground);
+  color: var(--textColor);
+  -webkit-transition: background 800ms ease-in-out, color 1200ms ease-in;
+  transition: background 800ms ease-in-out, color 1200ms ease-in;
 }
 
 .container {
@@ -28,14 +42,41 @@ body {
 }
 
 .container .firstContainer .pi {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 84px;
 }
 
-.container .firstContainer .pi p {
+.container .firstContainer .pi .p {
+  width: 98%;
+}
+
+.container .firstContainer .pi .p p {
   position: absolute;
-  font-size: 2em;
-  color: white;
-  top: -30px;
+  font-size: 2.5em;
+  color: var(--textColor);
+  top: -40px;
+}
+
+.container .firstContainer .pi .l {
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  height: 30px;
+  width: 30px;
+}
+
+.container .firstContainer .pi .l #logo {
+  height: 100%;
+  width: 30px;
+  display: block;
+  background-image: var(--icon);
+  background-repeat: no-repeat;
+  background-image: var(--icon);
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  text-indent: -9999px;
 }
 
 .container .firstContainer .top {
@@ -47,10 +88,10 @@ body {
       align-content: center;
   background-color: var(--createToDo);
   border-radius: 5px;
+  height: 55px;
 }
 
 .container .firstContainer .top .input {
-  border: 1px solid white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,10 +100,98 @@ body {
   width: 63px;
 }
 
+.container .secondContainer {
+  height: 350px;
+  position: relative;
+  top: 30px;
+}
+
+.container .secondContainer .top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: whitesmoke;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background-color: var(--createToDo);
+  border-radius: 5px;
+  height: 55px;
+  border-bottom: 1px solid var(--textColor);
+  border-bottom-style: inset;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.container .secondContainer .top .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 63px;
+}
+
+.container .secondContainer .bottomDiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: whitesmoke;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background-color: var(--createToDo);
+  border-radius: 5px;
+  height: 55px;
+  height: 40px;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  position: relative;
+}
+
+.container .secondContainer .bottomDiv .counter {
+  height: 30px;
+  position: absolute;
+  left: 30px;
+  bottom: 0px;
+}
+
+.container .secondContainer .bottomDiv .counter p {
+  margin: 7px;
+  font-size: 0.7em;
+}
+
+.container .secondContainer .bottomDiv .state {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 30px;
+  position: absolute;
+  right: 40%;
+  bottom: 0px;
+}
+
+.container .secondContainer .bottomDiv .state p {
+  margin: 7px;
+  font-size: 0.7em;
+}
+
+.container .secondContainer .bottomDiv .clear {
+  height: 30px;
+  position: absolute;
+  right: 25px;
+  bottom: 0px;
+}
+
+.container .secondContainer .bottomDiv .clear p {
+  margin: 7px;
+  font-size: 0.7em;
+}
+
 footer {
   position: absolute;
   bottom: 0px;
-  left: 35vw;
 }
 
 footer .attribution a {

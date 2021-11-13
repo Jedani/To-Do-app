@@ -1,22 +1,54 @@
 @mixin bgImage {
-	background-image: url("../images/bg-desktop-dark.jpg");
-	background-repeat: no-repeat;
-}
-@mixin sun {
-	background-image: url("../images/icon-sun.svg");
-	background-repeat: no-repeat;
-}
-@mixin moon {
-	background-image: url("../images/icon-moon.svg");
+	background-image: var(--bgimage);
 	background-repeat: no-repeat;
 }
 
+@mixin moon {
+	background-image: var(--icon);
+	background-repeat: no-repeat;
+}
+@mixin sun {
+	background-image: var(--icon);
+	background-repeat: no-repeat;
+}
+
+@mixin input {
+	display: flex;
+	align-content: center;
+	width: 63px;
+}
+@mixin div {
+	display: flex;
+	color: whitesmoke;
+	align-content: center;
+	background-color: var(--createToDo);
+	border-radius: 5px;
+	height: 55px;
+}
+
+@mixin flexWrap {
+	height: 30px;
+
+	p {
+		margin: 7px;
+		font-size: 0.7em;
+	}
+}
+
 .light {
+	--textColor: black;
+	--bodyBackground: hsl(0, 0%, 98%);
+	--createToDo: hsl(236, 33%, 92%);
+	--icon: url("../images/icon-moon.svg");
+	--bgimage: url("../images/bg-desktop-light.jpg");
 }
 
 .dark {
 	--bodyBackground: hsl(235, 21%, 11%);
 	--createToDo: hsl(235, 24%, 19%);
+	--textColor: white;
+	--icon: url("../images/icon-sun.svg");
+	--bgimage: url("../images/bg-desktop-dark.jpg");
 }
 
 body {
@@ -29,6 +61,8 @@ body {
 	font-size: 18px;
 	text-align: center;
 	background-color: var(--bodyBackground);
+	color: var(--textColor);
+	transition: background 800ms ease-in-out, color 1200ms ease-in;
 }
 
 .container {
@@ -41,29 +75,89 @@ body {
 		height: 150px;
 
 		.pi {
+			display: flex;
 			height: 84px;
 
-			p {
+			.p {
+				width: 98%;
+				p {
+					position: absolute;
+					font-size: 2.5em;
+					color: var(--textColor);
+					top: -40px;
+				}
+			}
+
+			.l {
 				position: absolute;
-				font-size: 2em;
-				color: white;
-				top: -30px;
+				right: 0px;
+				top: 5px;
+				height: 30px;
+				width: 30px;
+				#logo {
+					height: 100%;
+					width: 30px;
+					display: block;
+					@include sun;
+					@include moon;
+					background-size: 30px 30px;
+					text-indent: -9999px;
+				}
 			}
 		}
 
 		.top {
-			display: flex;
-
-			color: whitesmoke;
-			align-content: center;
-			background-color: var(--createToDo);
-			border-radius: 5px;
+			@include div;
 
 			.input {
-				border: 1px solid white;
-				display: flex;
-				align-content: center;
-				width: 63px;
+				@include input;
+			}
+		}
+	}
+
+	.secondContainer {
+		height: 350px;
+		position: relative;
+		top: 30px;
+
+		.top {
+			@include div;
+			border-bottom: 1px solid var(--textColor);
+			border-bottom-style: inset;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+
+			.input {
+				@include input;
+			}
+		}
+
+		.bottomDiv {
+			@include div;
+			height: 40px;
+			display: flex;
+			flex-wrap: wrap;
+			align-content: space-between;
+			position: relative;
+
+			.counter {
+				@include flexWrap;
+				position: absolute;
+				left: 30px;
+				bottom: 0px;
+			}
+			.state {
+				display: inline-flex;
+				@include flexWrap;
+				position: absolute;
+				right: 40%;
+				bottom: 0px;
+			}
+			.clear {
+				@include flexWrap;
+				position: absolute;
+				right: 25px;
+				bottom: 0px;
 			}
 		}
 	}
@@ -72,7 +166,7 @@ body {
 footer {
 	position: absolute;
 	bottom: 0px;
-	left: 35vw;
+
 	.attribution {
 		a {
 			text-decoration: wavy;
