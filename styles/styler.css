@@ -1,14 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-}
-
-.attribution {
-  font-size: 11px;
-  text-align: center;
-}
-
-.attribution a {
-  color: #3e52a3;
+  background-image: url("../images/bg-desktop-dark.jpg");
+  background-repeat: no-repeat;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 18px;
 }
 /*# sourceMappingURL=styler.css.map */
