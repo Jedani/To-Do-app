@@ -1,9 +1,11 @@
 .light {
-  --textColor: black;
+  --black: black;
+  --textColor: var(--black);
   --bodyBackground: hsl(0, 0%, 98%);
-  --createToDo: hsl(236, 33%, 92%);
+  --createToDo: hsl(0, 0%, 98%);
   --icon: url("../images/icon-moon.svg");
   --bgimage: url("../images/bg-desktop-light.jpg");
+  --borderColor: var(--black);
 }
 
 .dark {
@@ -12,6 +14,8 @@
   --textColor: white;
   --icon: url("../images/icon-sun.svg");
   --bgimage: url("../images/bg-desktop-dark.jpg");
+  --borderColor: var(--textColor);
+  --linear: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
 }
 
 body {
@@ -53,9 +57,9 @@ body {
 }
 
 .container .firstContainer .pi .p p {
+  color: white;
   position: absolute;
   font-size: 2.5em;
-  color: var(--textColor);
   top: -40px;
 }
 
@@ -91,19 +95,56 @@ body {
   height: 55px;
 }
 
-.container .firstContainer .top .input {
+.container .firstContainer .top .button {
+  width: 40px;
+  position: relative;
+}
+
+.container .firstContainer .top .button a {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 25%;
+}
+
+.container .firstContainer .top .button a:hover {
+  cursor: pointer;
+}
+
+.container .firstContainer .top .button a::before {
+  content: "";
+  border: 1px solid whitesmoke;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.container .firstContainer .top .textEntry {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  width: 63px;
+  position: relative;
+}
+
+.container .firstContainer .top .textEntry input {
+  width: 98%;
+  height: 50%;
+  position: absolute;
+  top: 25%;
+  background-color: var(--createToDo);
+  border-color: var(--createToDo);
+  border-style: none;
+  color: var(--textColor);
 }
 
 .container .secondContainer {
   height: 350px;
   position: relative;
   top: 30px;
+  color: var(--textColor);
 }
 
 .container .secondContainer .top {
@@ -131,6 +172,29 @@ body {
   width: 63px;
 }
 
+.container .secondContainer .top .input input[type="radio"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.container .secondContainer .top .input label {
+  height: 20px;
+  width: 20px;
+  border: 1px solid var(--textColor);
+  position: absolute;
+  border-radius: 50%;
+  top: 30%;
+  left: 30%;
+  background-image: url("../images/icon-check.svg");
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+.container .secondContainer .top .input label:hover {
+  cursor: pointer;
+}
+
 .container .secondContainer .bottomDiv {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -148,6 +212,7 @@ body {
   -ms-flex-line-pack: justify;
       align-content: space-between;
   position: relative;
+  color: var(--textColor);
 }
 
 .container .secondContainer .bottomDiv .counter {

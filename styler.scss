@@ -16,7 +16,30 @@
 	display: flex;
 	align-content: center;
 	width: 63px;
+
+	input[type="radio"] {
+		appearance: none;
+	}
+	label {
+		height: 20px;
+		width: 20px;
+		border: 1px solid var(--textColor);
+		position: absolute;
+		border-radius: 50%;
+		top: 30%;
+		left: 30%;
+		@include check;
+	}
+	label:hover {
+		cursor: pointer;
+	}
 }
+@mixin check {
+	background-image: url("../images/icon-check.svg");
+	background-repeat: no-repeat;
+	position: absolute;
+}
+
 @mixin div {
 	display: flex;
 	color: whitesmoke;
@@ -36,11 +59,13 @@
 }
 
 .light {
-	--textColor: black;
+	--black: black;
+	--textColor: var(--black);
 	--bodyBackground: hsl(0, 0%, 98%);
-	--createToDo: hsl(236, 33%, 92%);
+	--createToDo: hsl(0, 0%, 98%);
 	--icon: url("../images/icon-moon.svg");
 	--bgimage: url("../images/bg-desktop-light.jpg");
+	--borderColor: var(--black);
 }
 
 .dark {
@@ -49,6 +74,8 @@
 	--textColor: white;
 	--icon: url("../images/icon-sun.svg");
 	--bgimage: url("../images/bg-desktop-dark.jpg");
+	--borderColor: var(--textColor);
+	--linear: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
 }
 
 body {
@@ -80,10 +107,11 @@ body {
 
 			.p {
 				width: 98%;
+
 				p {
+					color: white;
 					position: absolute;
 					font-size: 2.5em;
-					color: var(--textColor);
 					top: -40px;
 				}
 			}
@@ -108,9 +136,44 @@ body {
 
 		.top {
 			@include div;
+			.button {
+				width: 40px;
+				position: relative;
+				a {
+					width: 100%;
 
-			.input {
-				@include input;
+					position: absolute;
+					left: 0px;
+					top: 25%;
+					&:hover {
+						cursor: pointer;
+					}
+				}
+				a::before {
+					content: "";
+					border: 1px solid whitesmoke;
+					border-radius: 50%;
+					width: 22px;
+					height: 22px;
+					display: inline-block;
+					vertical-align: middle;
+				}
+			}
+
+			.textEntry {
+				width: 100%;
+				display: flex;
+				position: relative;
+				input {
+					width: 98%;
+					height: 50%;
+					position: absolute;
+					top: 25%;
+					background-color: var(--createToDo);
+					border-color: var(--createToDo);
+					border-style: none;
+					color: var(--textColor);
+				}
 			}
 		}
 	}
@@ -119,6 +182,7 @@ body {
 		height: 350px;
 		position: relative;
 		top: 30px;
+		color: var(--textColor);
 
 		.top {
 			@include div;
@@ -139,6 +203,7 @@ body {
 			flex-wrap: wrap;
 			align-content: space-between;
 			position: relative;
+			color: var(--textColor);
 
 			.counter {
 				@include flexWrap;
