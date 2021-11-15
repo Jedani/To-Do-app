@@ -138,7 +138,6 @@ body {
 					@include sun;
 					@include moon;
 					background-size: 30px 30px;
-					text-indent: -9999px;
 				}
 			}
 		}
@@ -230,6 +229,13 @@ body {
 					position: absolute;
 					right: 25px;
 					bottom: 0px;
+					button {
+						background-color: var(--createToDo);
+						color: var(--textColor);
+						border-style: none;
+						font-family: "Josefin Sans", sans-serif;
+						cursor: pointer;
+					}
 				}
 			}
 		}

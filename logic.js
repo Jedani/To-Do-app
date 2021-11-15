@@ -17,6 +17,7 @@ const input = document.getElementById("createToDo");
 const container = document.querySelector(".topTwo");
 const containerOne = document.querySelector(".secondContainer");
 const list = document.querySelector(".list");
+const clearBtn = document.querySelector(".clearComplete");
 
 // edit options
 let editing = false;
@@ -59,3 +60,7 @@ function setDefautlt() {
 	input.value = "";
 	editing = false;
 }
+
+clearBtn.addEventListener("click", function () {
+	alert("hello");
+});

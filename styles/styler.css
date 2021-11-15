@@ -84,7 +84,6 @@ body {
   background-image: var(--icon);
   background-repeat: no-repeat;
   background-size: 30px 30px;
-  text-indent: -9999px;
 }
 
 .container .firstContainer .top {
@@ -215,6 +214,14 @@ body {
 .container .secondContainer .fixer .bottomDiv .clear p {
   margin: 7px;
   font-size: 0.7em;
+}
+
+.container .secondContainer .fixer .bottomDiv .clear button {
+  background-color: var(--createToDo);
+  color: var(--textColor);
+  border-style: none;
+  font-family: "Josefin Sans", sans-serif;
+  cursor: pointer;
 }
 
 .container .secondContainer .topTwo {
