@@ -6,6 +6,8 @@
   --icon: url("../images/icon-moon.svg");
   --bgimage: url("../images/bg-desktop-light.jpg");
   --borderColor: var(--black);
+  --xIcon: url("../images/icon-cross.svg");
+  --checkIcon: url("../images/icon-check.svg");
 }
 
 .dark {
@@ -15,7 +17,9 @@
   --icon: url("../images/icon-sun.svg");
   --bgimage: url("../images/bg-desktop-dark.jpg");
   --borderColor: var(--textColor);
-  --linear: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  --linear: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  --xIcon: url("../images/icon-cross.svg");
+  --checkIcon: url("../images/icon-check.svg");
 }
 
 body {
@@ -95,45 +99,47 @@ body {
   height: 55px;
 }
 
-.container .firstContainer .top .button {
-  width: 40px;
+.container .firstContainer .top .todoItem {
   position: relative;
-}
-
-.container .firstContainer .top .button a {
   width: 100%;
-  position: absolute;
-  left: 0px;
-  top: 25%;
 }
 
-.container .firstContainer .top .button a:hover {
+.container .firstContainer .top .todoItem .button {
+  height: 100%;
+  width: 40px;
+  position: absolute;
+}
+
+.container .firstContainer .top .todoItem .button button {
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 10px;
+  top: 25%;
+  border-radius: 50%;
+  background-color: var(--createToDo);
+}
+
+.container .firstContainer .top .todoItem .button button:hover {
+  background-image: var(--linear);
   cursor: pointer;
 }
 
-.container .firstContainer .top .button a::before {
-  content: "";
-  border: 1px solid whitesmoke;
-  border-radius: 50%;
-  width: 22px;
-  height: 22px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.container .firstContainer .top .textEntry {
-  width: 100%;
+.container .firstContainer .top .todoItem .textEntry {
+  width: 90%;
+  height: 95%;
+  position: absolute;
+  left: 8%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
 }
 
-.container .firstContainer .top .textEntry input {
-  width: 98%;
-  height: 50%;
+.container .firstContainer .top .todoItem .textEntry input {
+  height: 60%;
+  top: 10px;
+  width: 100%;
   position: absolute;
-  top: 25%;
   background-color: var(--createToDo);
   border-color: var(--createToDo);
   border-style: none;
@@ -141,61 +147,18 @@ body {
 }
 
 .container .secondContainer {
-  height: 350px;
+  height: 340px;
   position: relative;
   top: 30px;
   color: var(--textColor);
+  overflow-y: auto;
 }
 
-.container .secondContainer .top {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: whitesmoke;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  background-color: var(--createToDo);
-  border-radius: 5px;
-  height: 55px;
-  border-bottom: 1px solid var(--textColor);
-  border-bottom-style: inset;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+.container .secondContainer .fixer {
+  top: 300px;
 }
 
-.container .secondContainer .top .input {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  width: 63px;
-}
-
-.container .secondContainer .top .input input[type="radio"] {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-}
-
-.container .secondContainer .top .input label {
-  height: 20px;
-  width: 20px;
-  border: 1px solid var(--textColor);
-  position: absolute;
-  border-radius: 50%;
-  top: 30%;
-  left: 30%;
-  background-image: url("../images/icon-check.svg");
-  background-repeat: no-repeat;
-  position: absolute;
-}
-
-.container .secondContainer .top .input label:hover {
-  cursor: pointer;
-}
-
-.container .secondContainer .bottomDiv {
+.container .secondContainer .fixer .bottomDiv {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -215,19 +178,19 @@ body {
   color: var(--textColor);
 }
 
-.container .secondContainer .bottomDiv .counter {
+.container .secondContainer .fixer .bottomDiv .counter {
   height: 30px;
   position: absolute;
   left: 30px;
   bottom: 0px;
 }
 
-.container .secondContainer .bottomDiv .counter p {
+.container .secondContainer .fixer .bottomDiv .counter p {
   margin: 7px;
   font-size: 0.7em;
 }
 
-.container .secondContainer .bottomDiv .state {
+.container .secondContainer .fixer .bottomDiv .state {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -237,21 +200,100 @@ body {
   bottom: 0px;
 }
 
-.container .secondContainer .bottomDiv .state p {
+.container .secondContainer .fixer .bottomDiv .state p {
   margin: 7px;
   font-size: 0.7em;
 }
 
-.container .secondContainer .bottomDiv .clear {
+.container .secondContainer .fixer .bottomDiv .clear {
   height: 30px;
   position: absolute;
   right: 25px;
   bottom: 0px;
 }
 
-.container .secondContainer .bottomDiv .clear p {
+.container .secondContainer .fixer .bottomDiv .clear p {
   margin: 7px;
   font-size: 0.7em;
+}
+
+.container .secondContainer .topTwo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: whitesmoke;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background-color: var(--createToDo);
+  border-radius: 5px;
+  height: 55px;
+  border-bottom: 1px solid gray;
+  border-bottom-style: inset;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  position: relative;
+}
+
+.container .secondContainer .topTwo .iconOne .line {
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 10px;
+  top: 25%;
+  border-radius: 50%;
+  border: 1px solid gray;
+}
+
+.container .secondContainer .topTwo .iconOne .line:hover {
+  cursor: pointer;
+}
+
+.container .secondContainer .topTwo .iconOne .line #check {
+  height: 100%;
+  width: 30px;
+  display: block;
+  background: var(--checkIcon);
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+}
+
+.container .secondContainer .topTwo .content {
+  width: 83%;
+  height: 95%;
+  position: absolute;
+  left: 38px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .secondContainer .topTwo .icon {
+  position: absolute;
+  height: 50%;
+  width: 25px;
+  right: 20px;
+  top: 35%;
+}
+
+.container .secondContainer .topTwo .icon #xlogo {
+  height: 100%;
+  width: 20px;
+  display: block;
+  background: var(--xIcon);
+  background-repeat: no-repeat;
+  background-size: 18px 18px;
+}
+
+.container .secondContainer .topTwo .icon #xlogo:hover {
+  cursor: pointer;
+}
+
+.container .drag {
+  position: relative;
+  top: 40px;
 }
 
 footer {

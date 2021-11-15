@@ -66,6 +66,8 @@
 	--icon: url("../images/icon-moon.svg");
 	--bgimage: url("../images/bg-desktop-light.jpg");
 	--borderColor: var(--black);
+	--xIcon: url("../images/icon-cross.svg");
+	--checkIcon: url("../images/icon-check.svg");
 }
 
 .dark {
@@ -75,7 +77,14 @@
 	--icon: url("../images/icon-sun.svg");
 	--bgimage: url("../images/bg-desktop-dark.jpg");
 	--borderColor: var(--textColor);
-	--linear: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+	--linear: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+	--xIcon: url("../images/icon-cross.svg");
+	--checkIcon: url("../images/icon-check.svg");
+	// --radial: radial-gradient(
+	// 	circle at 100%,
+	// 	hsl(192, 100%, 67%),
+	// 	hsl(280, 87%, 65%) 30%
+	// );
 }
 
 body {
@@ -136,95 +145,163 @@ body {
 
 		.top {
 			@include div;
-			.button {
-				width: 40px;
-				position: relative;
-				a {
-					width: 100%;
 
+			.todoItem {
+				position: relative;
+				width: 100%;
+
+				.button {
+					height: 100%;
+					width: 40px;
 					position: absolute;
-					left: 0px;
-					top: 25%;
-					&:hover {
-						cursor: pointer;
+					button {
+						position: absolute;
+						height: 22px;
+						width: 22px;
+						left: 10px;
+						top: 25%;
+						border-radius: 50%;
+						background-color: var(--createToDo);
+						&:hover {
+							background-image: var(--linear);
+							cursor: pointer;
+						}
+					}
+
+					#submit {
 					}
 				}
-				a::before {
-					content: "";
-					border: 1px solid whitesmoke;
-					border-radius: 50%;
-					width: 22px;
-					height: 22px;
-					display: inline-block;
-					vertical-align: middle;
-				}
-			}
 
-			.textEntry {
-				width: 100%;
-				display: flex;
-				position: relative;
-				input {
-					width: 98%;
-					height: 50%;
+				.textEntry {
+					width: 90%;
+					height: 95%;
 					position: absolute;
-					top: 25%;
-					background-color: var(--createToDo);
-					border-color: var(--createToDo);
-					border-style: none;
-					color: var(--textColor);
+					left: 8%;
+					display: flex;
+					input {
+						height: 60%;
+						top: 10px;
+						width: 100%;
+						position: absolute;
+						background-color: var(--createToDo);
+						border-color: var(--createToDo);
+						border-style: none;
+						color: var(--textColor);
+					}
 				}
 			}
 		}
 	}
 
 	.secondContainer {
-		height: 350px;
+		height: 340px;
 		position: relative;
 		top: 30px;
 		color: var(--textColor);
+		overflow-y: auto;
 
-		.top {
+		.fixer {
+			top: 300px;
+
+			.bottomDiv {
+				@include div;
+				height: 40px;
+				display: flex;
+				flex-wrap: wrap;
+				align-content: space-between;
+				position: relative;
+				color: var(--textColor);
+
+				.counter {
+					@include flexWrap;
+					position: absolute;
+					left: 30px;
+					bottom: 0px;
+				}
+				.state {
+					display: inline-flex;
+					@include flexWrap;
+					position: absolute;
+					right: 40%;
+					bottom: 0px;
+				}
+				.clear {
+					@include flexWrap;
+					position: absolute;
+					right: 25px;
+					bottom: 0px;
+				}
+			}
+		}
+
+		.topTwo {
 			@include div;
-			border-bottom: 1px solid var(--textColor);
+			border-bottom: 1px solid gray;
 			border-bottom-style: inset;
 			border-bottom-left-radius: 0px;
 			border-bottom-right-radius: 0px;
-
-			.input {
-				@include input;
-			}
-		}
-
-		.bottomDiv {
-			@include div;
-			height: 40px;
-			display: flex;
-			flex-wrap: wrap;
-			align-content: space-between;
 			position: relative;
-			color: var(--textColor);
 
-			.counter {
-				@include flexWrap;
-				position: absolute;
-				left: 30px;
-				bottom: 0px;
+			.iconOne {
+				.line {
+					position: absolute;
+					height: 22px;
+					width: 22px;
+					left: 10px;
+					top: 25%;
+					// background-image: var(--linear);
+					border-radius: 50%;
+					border: 1px solid gray;
+					&:hover {
+						cursor: pointer;
+					}
+
+					#check {
+						height: 100%;
+						width: 30px;
+						display: block;
+						background: var(--checkIcon);
+						background-repeat: no-repeat;
+						background-size: 10px 10px;
+						position: absolute;
+						top: 6px;
+						left: 6px;
+					}
+				}
 			}
-			.state {
-				display: inline-flex;
-				@include flexWrap;
+
+			.content {
+				width: 83%;
+				height: 95%;
 				position: absolute;
-				right: 40%;
-				bottom: 0px;
+				left: 38px;
+				display: flex;
 			}
-			.clear {
-				@include flexWrap;
+
+			.icon {
 				position: absolute;
-				right: 25px;
-				bottom: 0px;
+				height: 50%;
+				width: 25px;
+				right: 20px;
+				top: 35%;
+
+				#xlogo {
+					height: 100%;
+					width: 20px;
+					display: block;
+					background: var(--xIcon);
+					background-repeat: no-repeat;
+					background-size: 18px 18px;
+					&:hover {
+						cursor: pointer;
+					}
+				}
 			}
 		}
+	}
+	.drag {
+		position: relative;
+		top: 40px;
 	}
 }
 

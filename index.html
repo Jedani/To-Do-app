@@ -30,34 +30,41 @@
 					</div>
 				</div>
 				<div class="top">
-					<div class="button">
-						<a id="submit"></a>
-					</div>
-					<div class="textEntry">
-						<input type="text" placeholder="Create a todo item" />
-					</div>
+					<form class="todoItem">
+						<div class="button">
+							<button type="submit" id="submit"></button>
+						</div>
+						<div class="textEntry">
+							<input
+								type="text"
+								placeholder="Create a todo item"
+								id="createToDo"
+							/>
+						</div>
+					</form>
 				</div>
 			</div>
 			<div class="secondContainer">
-				<div class="input">
-					<input type="radio" name="on" id="create" />
-					<label for="create"> </label>
-				</div>
-				<div class="bottomDiv">
-					<div class="counter">
-						<p>items left</p>
-					</div>
-					<div class="state">
-						<p>All</p>
-						<p>Active</p>
-						<p>Completed</p>
-					</div>
-					<div class="clear">
-						<p>Clear Completed</p>
+				<div class="list"></div>
+				<div class="fixer">
+					<div class="bottomDiv">
+						<div class="counter">
+							<p>items left</p>
+						</div>
+						<div class="state">
+							<p>All</p>
+							<p>Active</p>
+							<p>Completed</p>
+						</div>
+						<div class="clear">
+							<p>Clear Completed</p>
+						</div>
 					</div>
 				</div>
 			</div>
-			<p>Drag and drop to reorder list</p>
+			<div class="drag">
+				<p>Drag and drop to reorder list</p>
+			</div>
 		</div>
 
 		<footer>
